@@ -63,17 +63,29 @@ jobs:
             echo "is_newer=false" >> $GITHUB_OUTPUT
           fi
 
-      # Step 7: Set up GPG key
-      - name: Import GPG key
+      # Step 7: Set up GPG environment
+      - name: Set up GPG environment
+        if: steps.compare_versions.outputs.is_newer == 'true'
+        run: |
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+          echo "pinentry-mode loopback" > ~/.gnupg/gpg.conf
+          echo "GPG environment set up"
+
+      # Step 8: Import GPG private key
+      - name: Import GPG private key
         if: steps.compare_versions.outputs.is_newer == 'true'
         env:
           GPG_KEY: ${{ secrets.GPG_KEY }}
         run: |
-          mkdir -p ~/.gnupg
-          echo "$GPG_KEY" | base64 --decode | gpg --homedir ~/.gnupg --import --no-tty --batch --yes
-          echo "GPG key imported successfully"
+          echo "$GPG_KEY" | base64 --decode > gpg-key.asc
+          ls -l gpg-key.asc
+          gpg --homedir ~/.gnupg --batch --yes --import gpg-key.asc
+          gpg --homedir ~/.gnupg --list-secret-keys
+          rm gpg-key.asc
+          echo "GPG private key imported successfully"
 
-      # Step 8: Deploy to Maven Central
+      # Step 9: Deploy to Maven Central
       - name: Deploy to Maven Central
         if: steps.compare_versions.outputs.is_newer == 'true'
         env:
@@ -84,7 +96,7 @@ jobs:
         run: |
           mvn clean deploy -P ossrh -DskipTests --settings .github/settings.xml
 
-      # Step 9: Notify on failure
+      # Step 10: Notify on failure
       - name: Notify on failure
         if: failure()
         uses: actions/github-script@v7
