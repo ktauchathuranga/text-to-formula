@@ -6,7 +6,7 @@
 
     <groupId>io.github.ktauchathuranga</groupId>
     <artifactId>text-to-formula</artifactId>
-    <version>0.0.0</version>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
     <name>text-to-formula</name>
