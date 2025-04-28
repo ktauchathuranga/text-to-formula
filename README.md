@@ -27,7 +27,7 @@ Add the following dependency to your `pom.xml`:
 <dependency>
     <groupId>io.github.ktauchathuranga</groupId>
     <artifactId>text-to-formula</artifactId>
-    <version>1.0.0</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 
@@ -37,7 +37,7 @@ Add the following to your `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'io.github.ktauchathuranga:text-to-formula:1.0.0'
+    implementation 'io.github.ktauchathuranga:text-to-formula:0.0.1'
 }
 ```
 
@@ -47,7 +47,7 @@ Add the following to your `build.gradle.kts`:
 
 ```kotlin
 dependencies {
-    implementation("io.github.ktauchathuranga:text-to-formula:1.0.0")
+    implementation("io.github.ktauchathuranga:text-to-formula:0.0.1")
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 Add the following to your `build.sbt`:
 
 ```scala
-libraryDependencies += "io.github.ktauchathuranga" % "text-to-formula" % "1.0.0"
+libraryDependencies += "io.github.ktauchathuranga" % "text-to-formula" % "0.0.1"
 ```
 
 ### Leiningen
@@ -64,7 +64,7 @@ libraryDependencies += "io.github.ktauchathuranga" % "text-to-formula" % "1.0.0"
 Add the following to your `project.clj`:
 
 ```clojure
-:dependencies [[io.github.ktauchathuranga/text-to-formula "1.0.0"]]
+:dependencies [[io.github.ktauchathuranga/text-to-formula "0.0.1"]]
 ```
 
 ## Usage
@@ -119,7 +119,7 @@ If you need a version compatible with an earlier Java version (e.g., Java 21 or 
 
 ## Javadoc
 
-The full API documentation is available in the Javadoc, included in the [Maven Central release](https://repo1.maven.org/maven2/io/github/ktauchathuranga/text-to-formula/1.0.0/text-to-formula-1.0.0-javadoc.jar). You can also generate it locally by running:
+The full API documentation is available in the Javadoc, included in the [Maven Central release](https://repo1.maven.org/maven2/io/github/ktauchathuranga/text-to-formula/0.0.1/text-to-formula-0.0.1-javadoc.jar). You can also generate it locally by running:
 
 ```bash
 mvn javadoc:javadoc
