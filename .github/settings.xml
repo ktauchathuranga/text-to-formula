@@ -17,6 +17,7 @@
                 <gpg.executable>gpg</gpg.executable>
                 <gpg.keyname>${env.GPG_KEYNAME}</gpg.keyname>
                 <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+                <gpg.homedir>${env.HOME}/.gnupg</gpg.homedir>
             </properties>
         </profile>
     </profiles>
